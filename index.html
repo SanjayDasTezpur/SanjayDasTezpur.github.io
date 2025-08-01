@@ -54,7 +54,7 @@
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 80px 0 120px;
+            padding: 140px 0 120px;
             position: relative;
             overflow: hidden;
         }
@@ -65,6 +65,35 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .avatar-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar-container:hover .avatar {
+            transform: scale(1.05);
         }
 
         .header-content h1 {
@@ -186,6 +215,18 @@
             padding: 40px;
             max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent);
         }
 
         .about-card h3 {
@@ -315,6 +356,10 @@
         }
 
         /* Experience Section */
+        .experience {
+            position: relative;
+        }
+
         .timeline {
             position: relative;
             max-width: 800px;
@@ -382,6 +427,16 @@
             gap: 8px;
         }
 
+        .timeline-duration {
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
         .timeline-content h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
@@ -432,6 +487,17 @@
             box-shadow: var(--box-shadow);
             overflow: hidden;
             transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
         }
 
         .project-card:hover {
@@ -488,6 +554,68 @@
             font-size: 0.85rem;
             color: var(--primary);
             font-weight: 500;
+        }
+
+        /* Open Source Section */
+        .open-source {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .source-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            transition: var(--transition);
+            border-top: 4px solid var(--accent);
+        }
+
+        .source-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        .source-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .source-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .source-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .source-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
         }
 
         /* Education & Certifications */
@@ -603,6 +731,11 @@
                 font-size: 1.5rem;
             }
 
+            .avatar-container {
+                width: 140px;
+                height: 140px;
+            }
+
             .contact-info {
                 flex-direction: column;
                 align-items: center;
@@ -639,8 +772,13 @@
                 font-size: 2rem;
             }
 
-            .projects-grid {
+            .projects-grid, .source-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .avatar-container {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
@@ -655,6 +793,9 @@
     </div>
     <div class="container">
         <div class="header-content">
+            <div class="avatar-container">
+                <img src="https://avatars.githubusercontent.com/u/22274113?v=4" alt="Sanjay Das" class="avatar">
+            </div>
             <h1>Sanjay Das</h1>
             <h2>Senior Software Engineer</h2>
             <p>Results-driven Senior Software Engineer with 8+ years designing, developing, and deploying scalable Java microservices and distributed systems. Expertise in Spring Boot, Kafka, Kubernetes, and Azure cloud-native architectures.</p>
@@ -870,6 +1011,7 @@
                         <i class="far fa-calendar-alt"></i>
                         Sep 2020 - Present
                     </div>
+                    <div class="timeline-duration">4+ years</div>
                     <h3>Walmart Global Tech, India</h3>
                     <h4>Senior Software Engineer</h4>
                     <p>Leading backend development for critical financial systems and AI-powered solutions.</p>
@@ -888,6 +1030,7 @@
                         <i class="far fa-calendar-alt"></i>
                         Jul 2020 - Aug 2020
                     </div>
+                    <div class="timeline-duration">2 months</div>
                     <h3>NoBroker Solution Pvt Ltd</h3>
                     <h4>Software Development Engineer</h4>
                     <p>Enhanced lead generation systems for real estate platform.</p>
@@ -905,6 +1048,7 @@
                         <i class="far fa-calendar-alt"></i>
                         Jan 2018 - Jul 2020
                     </div>
+                    <div class="timeline-duration">2.5 years</div>
                     <h3>Intel Corporation, India</h3>
                     <h4>Software Engineer</h4>
                     <p>Developed distributed computing solutions.</p>
@@ -912,6 +1056,24 @@
                         <li>Worked on Netbatch distributed computing platform</li>
                         <li>Led backend QA team for high-throughput systems</li>
                         <li>Developed with Java and Perl</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">
+                        <i class="far fa-calendar-alt"></i>
+                        Dec 2016 - Nov 2017
+                    </div>
+                    <div class="timeline-duration">11 months</div>
+                    <h3>Intel Corporation, India</h3>
+                    <h4>Software Engineer Intern</h4>
+                    <p>Contributed to distributed computing solutions as an intern.</p>
+                    <ul>
+                        <li>Worked on Netbatch distributed computing platform</li>
+                        <li>Developed with Java and Perl</li>
+                        <li>Assisted in QA processes</li>
                     </ul>
                 </div>
             </div>
@@ -985,6 +1147,51 @@
                         <span class="tech-tag">Microservices</span>
                         <span class="tech-tag">Lead Management</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Open Source Section -->
+<section class="open-source">
+    <div class="container">
+        <div class="section-title">
+            <h2>Open Source Contributions</h2>
+            <p>Contributions to the developer community</p>
+        </div>
+
+        <div class="source-grid">
+            <div class="source-card">
+                <h3><i class="fab fa-github"></i> IntelliJ Community Plugin</h3>
+                <p>An Open Source Contribution in Intellij Community Plugin Development approved by JetBrain under Apache-2.0 license.</p>
+                <div class="source-links">
+                    <a href="https://plugins.jetbrains.com/plugin/11504-iyt/update/53769" class="source-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Contribution
+                    </a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <h3><i class="fab fa-github"></i> Azure Java SDK Bug Fixes</h3>
+                <p>Contributed bug fixes to Azure Java SDK, addressing critical issues in the Azure client libraries.</p>
+                <div class="source-links">
+                    <a href="https://github.com/Azure/azure-sdk-for-java/issues/40018" class="source-link" target="_blank">
+                        <i class="fas fa-bug"></i> Issue #40018
+                    </a>
+                    <a href="https://github.com/Azure/azure-sdk-for-java/issues/40038" class="source-link" target="_blank">
+                        <i class="fas fa-bug"></i> Issue #40038
+                    </a>
+                </div>
+            </div>
+
+            <div class="source-card">
+                <h3><i class="fas fa-virus"></i> COVID-19 Tracker for NE India</h3>
+                <p>Developed to find COVID-19 cases in Northeast India during 2020. Developed Using Spring Boot and AngularJS.</p>
+                <div class="source-links">
+                    <a href="https://github.com/SanjayDasTezpur/Covid19" class="source-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
                 </div>
             </div>
         </div>
